@@ -1,6 +1,14 @@
 const loginForm = document.getElementById('login-form');
+const BASE_URL = 'http://localhost:5001';
 
-// console.log('Hello World');
+// Redirect to Home Page if logged in user visits login page
+if (localStorage.getItem('isAuthenticated') === 'true') {
+  console.log('isAuthenticated true');
+  window.location.replace(`${BASE_URL}/home-page.html`);
+} else {
+  localStorage.setItem('isAuthenticated', 'false');
+}
+
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -11,14 +19,20 @@ loginForm.addEventListener('submit', (event) => {
 
   userData = { email: userEmail, password: userPassword };
 
+  //   axios.defaults.withCredentials = true;
   axios
     .post('http://localhost:5000/api/v1/user/login', userData)
+    // withCredentials: true,
     .then(function (response) {
       // handle success
-      console.log(response.data);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem('isAuthenticated', 'true');
+      window.location.replace(`${BASE_URL}/home-page.html`);
     })
     .catch(function (error) {
       // handle error
-      alert(error.response.data.error);
+      if (error.response) {
+        alert(error.response.data.error);
+      }
     });
 });

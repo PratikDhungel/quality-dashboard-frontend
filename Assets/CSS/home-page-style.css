@@ -1,0 +1,60 @@
+body {
+  /* font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif; */
+  /* font-family: 'Ubuntu', sans-serif; */
+  font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto,
+    Helvetica Neue, sans-serif;
+  font-size: 16px;
+}
+
+.header-wrapper {
+  height: 80px;
+  width: 100%;
+  display: block;
+  /* background-color: #ffa07a; */
+  background-color: #ff5a5e;
+}
+
+.inner-header {
+  height: 100%;
+  width: 1000px;
+  display: block;
+  margin: 0 auto;
+}
+
+.logo-container {
+  height: 100%;
+  display: table;
+  float: left;
+}
+
+.logo-container p {
+  color: white;
+  font-size: 24px;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.navigation-container {
+  height: 100%;
+  float: right;
+}
+
+.navigation-container ul {
+  height: 100%;
+}
+
+.navigation-container ul a {
+  height: 100%;
+  display: table;
+  float: left;
+  padding: 0px 20px;
+}
+
+.navigation-container ul a li {
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+  font-size: 20px;
+  color: white;
+}
